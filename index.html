@@ -1,308 +1,920 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="dark" lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solo Fashion</title>
-    <style>
-        * { box-sizing: border-box; }
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f7f7f7;
-            color: #222;
-        }
-        header {
-            background: #181818;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-        header h1 {
-            margin: 0;
-            letter-spacing: 1px;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 30px 20px;
-        }
-        .hero {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-        .hero h2 {
-            font-size: 2.2rem;
-            margin-bottom: 10px;
-        }
-        .hero p {
-            color: #555;
-            font-size: 1rem;
-        }
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 22px;
-        }
-        .card {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-            transition: transform 0.2s ease;
-        }
-        .card:hover {
-            transform: translateY(-4px);
-        }
-        .card img {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            display: block;
-        }
-        .info {
-            padding: 15px;
-        }
-        .info h3 {
-            margin: 0 0 8px;
-            font-size: 1.2rem;
-        }
-        .info p {
-            margin: 0 0 10px;
-            color: #666;
-        }
-        .price {
-            font-weight: bold;
-            color: #c72a2a;
-            font-size: 1.3rem;
-        }
-        .btn {
-            display: inline-block;
-            margin-top: 12px;
-            background: #111;
-            color: white;
-            padding: 11px 18px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            width: 100%;
-            font-size: 1rem;
-        }
-        footer {
-            background: #111;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            margin-top: 30px;
-        }
-    </style>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="web_standard" name="shell-type"/>
+  <title>Solo Fashion - Premium Tailored Collection</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+  <style>
+    * { box-sizing: border-box; }
+    
+    :root {
+      --primary: #c8c6c5;
+      --secondary: #ffb59c;
+      --tertiary: #e9c349;
+      --surface: #131410;
+      --surface-container: #20201c;
+      --surface-container-low: #1c1c18;
+      --surface-container-high: #2a2a26;
+      --on-surface: #e5e2dc;
+      --on-surface-variant: #c4c7c7;
+      --error: #ffb4ab;
+    }
+    
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--surface);
+      color: var(--on-surface);
+    }
+    
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    
+    /* Header Styling */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      background: rgba(19, 20, 16, 0.9);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 1px 8px rgba(0,0,0,0.04);
+    }
+    
+    .header-banner {
+      background: #0e0e0b;
+      color: var(--on-surface-variant);
+      font-size: 0.6875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      text-align: center;
+      padding: 0.5rem 1.5rem;
+      border-bottom: 1px solid rgba(42, 42, 38, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    
+    .header-main {
+      height: 5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      padding: 0 1.5rem;
+    }
+    
+    .logo-section {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .logo-section img {
+      height: 2.25rem;
+      width: auto;
+      object-fit: contain;
+    }
+    
+    .logo-text {
+      font-family: 'Bodoni Moda', serif;
+      font-size: 1.25rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--on-surface);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .logo-text:hover {
+      color: var(--secondary);
+    }
+    
+    nav {
+      display: none;
+      gap: 2.5rem;
+      align-items: center;
+    }
+    
+    @media (min-width: 768px) {
+      nav { display: flex; }
+    }
+    
+    nav a {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--on-surface-variant);
+      text-decoration: none;
+      transition: all 0.3s ease;
+      padding: 0.25rem 0;
+      border-bottom: 2px solid transparent;
+    }
+    
+    nav a:hover, nav a.active {
+      color: var(--on-surface);
+      border-bottom-color: var(--secondary);
+    }
+    
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .btn-whatsapp {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+      background: var(--surface-container-low);
+      color: var(--on-surface-variant);
+      padding: 0.5rem 0.5rem;
+      border-radius: 0.5rem;
+      text-decoration: none;
+      font-size: 0.6875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .btn-whatsapp:hover {
+      background: var(--surface-container);
+      color: var(--tertiary);
+    }
+    
+    .btn-book {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #852a03;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+    
+    .btn-book:hover {
+      background: var(--secondary);
+      color: var(--surface);
+      transform: translateY(-2px);
+    }
+    
+    /* Hero Section */
+    .hero-section {
+      position: relative;
+      width: 100%;
+      min-height: 92vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 9rem 1.5rem 4rem;
+      background: var(--surface-container-lowest);
+      overflow: hidden;
+      margin-top: 0;
+    }
+    
+    .hero-background {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    
+    .hero-background img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.9) contrast(1.05);
+    }
+    
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, var(--surface) 0%, rgba(19, 20, 16, 0.6) 50%, rgba(19, 20, 16, 0.2) 100%);
+      pointer-events: none;
+    }
+    
+    .hero-overlay-side {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(19, 20, 16, 0.8) 0%, transparent 40%, rgba(19, 20, 16, 0.4) 100%);
+      pointer-events: none;
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      max-width: 50rem;
+    }
+    
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(28, 28, 24, 0.9);
+      backdrop-filter: blur(12px);
+      padding: 0.375rem 1rem;
+      border-radius: 0.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .pulse-dot {
+      width: 0.5rem;
+      height: 0.5rem;
+      border-radius: 50%;
+      background: var(--secondary);
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+    
+    .badge-text {
+      font-size: 0.6875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--on-surface);
+    }
+    
+    .badge-text.accent {
+      color: var(--tertiary);
+    }
+    
+    h1 {
+      font-family: 'Bodoni Moda', serif;
+      font-size: 4.5rem;
+      font-weight: 400;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+      color: var(--on-surface);
+      margin: 0 0 1rem 0;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+    
+    @media (max-width: 768px) {
+      h1 { font-size: 2.125rem; }
+    }
+    
+    .hero-description {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.25rem;
+      line-height: 1.7;
+      letter-spacing: -0.005em;
+      font-weight: 300;
+      color: var(--on-surface-variant);
+      margin: 0;
+      max-width: 40rem;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.2);
+    }
+    
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 2.5rem;
+    }
+    
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #852a03;
+      color: white;
+      padding: 0.875rem 2.5rem;
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      border-radius: 0.25rem;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+      font-weight: 500;
+    }
+    
+    .btn-primary:hover {
+      background: var(--secondary);
+      color: var(--surface);
+      transform: translateY(-2px);
+    }
+    
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(42, 42, 38, 0.8);
+      color: var(--on-surface);
+      padding: 0.875rem 2.5rem;
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      border-radius: 0.25rem;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      backdrop-filter: blur(12px);
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    
+    .btn-secondary:hover {
+      background: rgba(42, 42, 38, 1);
+    }
+    
+    /* Trust Matrix */
+    .trust-section {
+      width: 100%;
+      background: var(--surface-container);
+      padding: 1.5rem;
+    }
+    
+    .trust-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      align-items: center;
+    }
+    
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .trust-icon {
+      width: 3rem;
+      height: 3rem;
+      border-radius: 0.5rem;
+      background: var(--surface-container-high);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1.5rem;
+    }
+    
+    .trust-text h3 {
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--on-surface);
+      margin: 0;
+      font-weight: 600;
+    }
+    
+    .trust-text p {
+      font-size: 0.875rem;
+      color: var(--on-surface-variant);
+      margin: 0;
+    }
+    
+    /* Product Grid */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
+    }
+    
+    .section-header {
+      margin-bottom: 3rem;
+    }
+    
+    .section-label {
+      font-size: 0.6875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--secondary);
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+    
+    .section-label-line {
+      width: 3rem;
+      height: 1px;
+      background: #852a03;
+      display: inline-block;
+      margin-left: 0.5rem;
+      vertical-align: middle;
+    }
+    
+    h2 {
+      font-family: 'Bodoni Moda', serif;
+      font-size: 3.25rem;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      line-height: 1.12;
+      color: var(--on-surface);
+      margin: 0;
+    }
+    
+    @media (max-width: 768px) {
+      h2 { font-size: 1.75rem; }
+    }
+    
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+    
+    .card {
+      background: var(--surface-container);
+      border-radius: 0.5rem;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.3);
+    }
+    
+    .card-image {
+      width: 100%;
+      height: 360px;
+      overflow: hidden;
+      background: var(--surface-container-low);
+    }
+    
+    .card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.7s ease;
+    }
+    
+    .card:hover .card-image img {
+      transform: scale(1.05);
+    }
+    
+    .card-info {
+      padding: 1.5rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .card-info h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--on-surface);
+      margin: 0 0 0.5rem;
+    }
+    
+    .card-info p {
+      font-size: 0.875rem;
+      color: var(--on-surface-variant);
+      margin: 0 0 0.75rem;
+      flex: 1;
+    }
+    
+    .price {
+      font-weight: bold;
+      color: var(--secondary);
+      font-size: 1.3rem;
+      margin: 0;
+    }
+    
+    .btn-add {
+      display: inline-block;
+      margin-top: 1rem;
+      background: #1a1a1a;
+      color: white;
+      padding: 0.75rem 1.125rem;
+      border: 1px solid var(--surface-container-high);
+      border-radius: 0.5rem;
+      cursor: pointer;
+      width: 100%;
+      font-size: 1rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-add:hover {
+      background: var(--secondary);
+      color: var(--surface);
+      border-color: var(--secondary);
+    }
+    
+    /* Footer */
+    footer {
+      background: #1a1a1a;
+      color: var(--on-surface-variant);
+      text-align: center;
+      padding: 2rem 1.5rem;
+      margin-top: 3rem;
+      border-top: 1px solid var(--surface-container);
+    }
+    
+    footer p {
+      margin: 0;
+      font-size: 0.875rem;
+    }
+    
+    .divider {
+      color: var(--secondary);
+      margin: 0 0.5rem;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Solo Fashion</h1>
-    </header>
+  <!-- Header -->
+  <header>
+    <div class="header-banner">
+      <span>🌍 Free Nationwide Delivery Across Kenya</span>
+      <span class="divider">•</span>
+      <span>✨ Premium Fashion Craftsmanship</span>
+      <span class="divider">•</span>
+      <span>🎯 Bespoke & Custom Services Available</span>
+    </div>
+    <div class="header-main">
+      <div class="logo-section">
+        <a class="logo-text" href="#home">Solo Fashion</a>
+      </div>
+      <nav>
+        <a href="#home" class="active">Home</a>
+        <a href="#collection">Collection</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <a class="btn-whatsapp" href="https://wa.me/254700000000" target="_blank">
+          💬 <span class="hidden-mobile">Concierge</span>
+        </a>
+        <button class="btn-book">Book Now</button>
+      </div>
+    </div>
+  </header>
 
-    <div class="container">
-        <div class="hero">
-            <h2>New Collection</h2>
-            <p>Stylish fashion for everyday confidence.</p>
+  <!-- Hero Section -->
+  <section class="hero-section" id="home">
+    <div class="hero-background">
+      <img src="i1777448441049_5001_0_7.jpg" alt="Premium fashion collection hero">
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-overlay-side"></div>
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="pulse-dot"></span>
+        <span class="badge-text">The 2025 Collection</span>
+        <span class="badge-text accent">• Solo Fashion Premium</span>
+      </div>
+      <h1>Contemporary Style Meets Timeless Elegance</h1>
+      <p class="hero-description">
+        Curated fashion collection featuring premium quality garments, bespoke tailoring, and exceptional craftsmanship. Delivered nationwide with free express shipping.
+      </p>
+      <div class="hero-actions">
+        <a class="btn-primary" href="#collection">
+          Explore Collection
+          <span style="margin-left: 0.5rem;">→</span>
+        </a>
+        <a class="btn-secondary" href="#about">
+          Learn More
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Matrix -->
+  <section class="trust-section">
+    <div class="trust-grid">
+      <div class="trust-item">
+        <div class="trust-icon">👑</div>
+        <div class="trust-text">
+          <h3>Premium Quality</h3>
+          <p>Finest materials and craftsmanship</p>
         </div>
-
-        <div class="grid">
-            <div class="card">
-                <img src="i1779394270889_3545_0_66.jpg" alt="Fashion product 1">
-                <div class="info">
-                    <h3>Classic Tee</h3>
-                    <p>Comfortable everyday wear</p>
-                    <div class="price">$29.99</div>
-                    <button class="btn">Add to Cart</button>
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="i1779394270891_2324_0_37.jpg" alt="Fashion product 2">
-                <div class="info">
-                    <h3>Summer Dress</h3>
-                    <p>Elegant and breathable</p>
-                    <div class="price">$49.99</div>
-                    <button class="btn">Add to Cart</button>
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="i1779394273554_9804_0_0.jpg" alt="Fashion product 3">
-                <div class="info">
-                    <h3>Denim Jacket</h3>
-                    <p>Classic street style</p>
-                    <div class="price">$79.99</div>
-                    <button class="btn">Add to Cart</button>
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="i1779394279636_2868_0_8.jpg" alt="Fashion product 4">
-                <div class="info">
-                    <h3>Casual Shirt</h3>
-                    <p>Soft and modern fit</p>
-                    <div class="price">$34.99</div>
-                    <button class="btn">Add to Cart</button>
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="i1779394279638_8643_0_17.jpg" alt="Fashion product 5">
-                <div class="info">
-                    <h3>Slim Pants</h3>
-                    <p>Trend-focused silhouette</p>
-                    <div class="price">$59.99</div>
-                    <button class="btn">Add to Cart</button>
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="i1779394282942_9305_0_96.jpg" alt="Fashion product 6">
-                <div class="info">
-                    <h3>Cozy Hoodie</h3>
-                    <p>Warm and relaxed</p>
-                    <div class="price">$54.99</div>
-                    <button class="btn">Add to Cart</button>
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="i1779394285234_9841_0_35.jpg" alt="Fashion product 7">
-                <div class="info">
-                    <h3>Polo Shirt</h3>
-                    <p>Smart casual staple</p>
-                    <div class="price">$44.99</div>
-                    <button class="btn">Add to Cart</button>
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="i1779394287015_2579_0_22.jpg" alt="Fashion product 8">
-                <div class="info">
-                    <h3>Tank Top</h3>
-                    <p>Perfect for summer</p>
-                    <div class="price">$19.99</div>
-                    <button class="btn">Add to Cart</button>
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="i1779394287017_8410_0_87.jpg" alt="Fashion product 9">
-                <div class="info">
-                    <h3>Cargo Pants</h3>
-                    <p>Durable and stylish</p>
-                    <div class="price">$64.99</div>
-                    <button class="btn">Add to Cart</button>
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="i1779394289291_3026_0_65.jpg" alt="Fashion product 10">
-                <div class="info">
-                    <h3>V-Neck Shirt</h3>
-                    <p>Clean and versatile</p>
-                    <div class="price">$39.99</div>
-                    <button class="btn">Add to Cart</button>
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="i1779476470318_3864_0_57.jpg" alt="Fashion product 11">
-                <div class="info">
-                    <h3>Bomber Jacket</h3>
-                    <p>Modern edge</p>
-                    <div class="price">$84.99</div>
-                    <button class="btn">Add to Cart</button>
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="i1779476472413_687_0_21.jpg" alt="Fashion product 12">
-                <div class="info">
-                    <h3>Sweatshirt</h3>
-                    <p>Strong everyday comfort</p>
-                    <div class="price">$49.99</div>
-                    <button class="btn">Add to Cart</button>
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="i1779476473597_1602_0_73.jpg" alt="Fashion product 13">
-                <div class="info">
-                    <h3>Long Sleeve</h3>
-                    <p>Easy layering</p>
-                    <div class="price">$34.99</div>
-                    <button class="btn">Add to Cart</button>
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="i1779476473597_6433_0_47.jpg" alt="Fashion product 14">
-                <div class="info">
-                    <h3>Sport Shorts</h3>
-                    <p>Lightweight movement</p>
-                    <div class="price">$29.99</div>
-                    <button class="btn">Add to Cart</button>
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="i1779476474460_5096_0_6.jpg" alt="Fashion product 15">
-                <div class="info">
-                    <h3>Formal Shirt</h3>
-                    <p>Clean and polished</p>
-                    <div class="price">$59.99</div>
-                    <button class="btn">Add to Cart</button>
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="i1779476475356_3098_0_25.jpg" alt="Fashion product 16">
-                <div class="info">
-                    <h3>Linen Shirt</h3>
-                    <p>Fresh and airy</p>
-                    <div class="price">$44.99</div>
-                    <button class="btn">Add to Cart</button>
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="i1779476475651_8263_0_28.jpg" alt="Fashion product 17">
-                <div class="info">
-                    <h3>Oxford Shirt</h3>
-                    <p>Classic luxury feel</p>
-                    <div class="price">$54.99</div>
-                    <button class="btn">Add to Cart</button>
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="i1779476475930_7501_0_34.jpg" alt="Fashion product 18">
-                <div class="info">
-                    <h3>Henley Shirt</h3>
-                    <p>Casual and stylish</p>
-                    <div class="price">$32.99</div>
-                    <button class="btn">Add to Cart</button>
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="i1779476476513_2509_0_4.jpg" alt="Fashion product 19">
-                <div class="info">
-                    <h3>Crew Neck</h3>
-                    <p>Effortless everyday look</p>
-                    <div class="price">$37.99</div>
-                    <button class="btn">Add to Cart</button>
-                </div>
-            </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">📍</div>
+        <div class="trust-text">
+          <h3>Nationwide Coverage</h3>
+          <p>Delivery to all 47 counties</p>
         </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">🚚</div>
+        <div class="trust-text">
+          <h3>Free Express Shipping</h3>
+          <p>Fast, insured delivery nationwide</p>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">✨</div>
+        <div class="trust-text">
+          <h3>Bespoke Services</h3>
+          <p>Custom tailoring & personal styling</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Container -->
+  <main class="container" id="collection">
+    <div class="section-header">
+      <span class="section-label">Curated Selection</span>
+      <h2>The Signature Collection</h2>
     </div>
 
-    <footer>
-        <p>© 2026 Solo Fashion</p>
-    </footer>
+    <div class="grid">
+      <!-- Product 1 -->
+      <div class="card">
+        <div class="card-image">
+          <img src="i1779394270889_3545_0_66.jpg" alt="Classic Tee">
+        </div>
+        <div class="card-info">
+          <h3>Classic Tee</h3>
+          <p>Comfortable everyday wear with premium fabric</p>
+          <div class="price">$29.99</div>
+          <button class="btn-add">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 2 -->
+      <div class="card">
+        <div class="card-image">
+          <img src="i1779394270891_2324_0_37.jpg" alt="Summer Dress">
+        </div>
+        <div class="card-info">
+          <h3>Summer Dress</h3>
+          <p>Elegant and breathable summer collection</p>
+          <div class="price">$49.99</div>
+          <button class="btn-add">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 3 -->
+      <div class="card">
+        <div class="card-image">
+          <img src="i1779394273554_9804_0_0.jpg" alt="Denim Jacket">
+        </div>
+        <div class="card-info">
+          <h3>Denim Jacket</h3>
+          <p>Classic street style essential piece</p>
+          <div class="price">$79.99</div>
+          <button class="btn-add">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 4 -->
+      <div class="card">
+        <div class="card-image">
+          <img src="i1779394279636_2868_0_8.jpg" alt="Casual Shirt">
+        </div>
+        <div class="card-info">
+          <h3>Casual Shirt</h3>
+          <p>Soft and modern fit for versatile styling</p>
+          <div class="price">$34.99</div>
+          <button class="btn-add">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 5 -->
+      <div class="card">
+        <div class="card-image">
+          <img src="i1779394279638_8643_0_17.jpg" alt="Slim Pants">
+        </div>
+        <div class="card-info">
+          <h3>Slim Pants</h3>
+          <p>Trend-focused silhouette with perfect fit</p>
+          <div class="price">$59.99</div>
+          <button class="btn-add">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 6 -->
+      <div class="card">
+        <div class="card-image">
+          <img src="i1779394282942_9305_0_96.jpg" alt="Cozy Hoodie">
+        </div>
+        <div class="card-info">
+          <h3>Cozy Hoodie</h3>
+          <p>Warm and relaxed comfort wear</p>
+          <div class="price">$54.99</div>
+          <button class="btn-add">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 7 -->
+      <div class="card">
+        <div class="card-image">
+          <img src="i1779394285234_9841_0_35.jpg" alt="Polo Shirt">
+        </div>
+        <div class="card-info">
+          <h3>Polo Shirt</h3>
+          <p>Smart casual staple for any occasion</p>
+          <div class="price">$44.99</div>
+          <button class="btn-add">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 8 -->
+      <div class="card">
+        <div class="card-image">
+          <img src="i1779394287015_2579_0_22.jpg" alt="Tank Top">
+        </div>
+        <div class="card-info">
+          <h3>Tank Top</h3>
+          <p>Perfect lightweight piece for summer</p>
+          <div class="price">$19.99</div>
+          <button class="btn-add">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 9 -->
+      <div class="card">
+        <div class="card-image">
+          <img src="i1779394287017_8410_0_87.jpg" alt="Cargo Pants">
+        </div>
+        <div class="card-info">
+          <h3>Cargo Pants</h3>
+          <p>Durable and stylish versatile wear</p>
+          <div class="price">$64.99</div>
+          <button class="btn-add">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 10 -->
+      <div class="card">
+        <div class="card-image">
+          <img src="i1779394289291_3026_0_65.jpg" alt="V-Neck Shirt">
+        </div>
+        <div class="card-info">
+          <h3>V-Neck Shirt</h3>
+          <p>Clean and versatile essential garment</p>
+          <div class="price">$39.99</div>
+          <button class="btn-add">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 11 -->
+      <div class="card">
+        <div class="card-image">
+          <img src="i1779476470318_3864_0_57.jpg" alt="Bomber Jacket">
+        </div>
+        <div class="card-info">
+          <h3>Bomber Jacket</h3>
+          <p>Modern edge with contemporary style</p>
+          <div class="price">$84.99</div>
+          <button class="btn-add">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 12 -->
+      <div class="card">
+        <div class="card-image">
+          <img src="i1779476472413_687_0_21.jpg" alt="Sweatshirt">
+        </div>
+        <div class="card-info">
+          <h3>Sweatshirt</h3>
+          <p>Strong everyday comfort and style</p>
+          <div class="price">$49.99</div>
+          <button class="btn-add">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 13 -->
+      <div class="card">
+        <div class="card-image">
+          <img src="i1779476473597_1602_0_73.jpg" alt="Long Sleeve">
+        </div>
+        <div class="card-info">
+          <h3>Long Sleeve</h3>
+          <p>Easy layering for any season</p>
+          <div class="price">$34.99</div>
+          <button class="btn-add">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 14 -->
+      <div class="card">
+        <div class="card-image">
+          <img src="i1779476473597_6433_0_47.jpg" alt="Sport Shorts">
+        </div>
+        <div class="card-info">
+          <h3>Sport Shorts</h3>
+          <p>Lightweight movement and comfort</p>
+          <div class="price">$29.99</div>
+          <button class="btn-add">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 15 -->
+      <div class="card">
+        <div class="card-image">
+          <img src="i1779476474460_5096_0_6.jpg" alt="Formal Shirt">
+        </div>
+        <div class="card-info">
+          <h3>Formal Shirt</h3>
+          <p>Clean and polished professional wear</p>
+          <div class="price">$59.99</div>
+          <button class="btn-add">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 16 -->
+      <div class="card">
+        <div class="card-image">
+          <img src="i1779476475356_3098_0_25.jpg" alt="Linen Shirt">
+        </div>
+        <div class="card-info">
+          <h3>Linen Shirt</h3>
+          <p>Fresh and airy luxury fabric</p>
+          <div class="price">$44.99</div>
+          <button class="btn-add">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 17 -->
+      <div class="card">
+        <div class="card-image">
+          <img src="i1779476475651_8263_0_28.jpg" alt="Oxford Shirt">
+        </div>
+        <div class="card-info">
+          <h3>Oxford Shirt</h3>
+          <p>Classic luxury feel and durability</p>
+          <div class="price">$54.99</div>
+          <button class="btn-add">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 18 -->
+      <div class="card">
+        <div class="card-image">
+          <img src="i1779476475930_7501_0_34.jpg" alt="Henley Shirt">
+        </div>
+        <div class="card-info">
+          <h3>Henley Shirt</h3>
+          <p>Casual and stylish everyday look</p>
+          <div class="price">$32.99</div>
+          <button class="btn-add">Add to Cart</button>
+        </div>
+      </div>
+
+      <!-- Product 19 -->
+      <div class="card">
+        <div class="card-image">
+          <img src="i1779476476513_2509_0_4.jpg" alt="Crew Neck">
+        </div>
+        <div class="card-info">
+          <h3>Crew Neck</h3>
+          <p>Effortless everyday style essential</p>
+          <div class="price">$37.99</div>
+          <button class="btn-add">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 Solo Fashion <span class="divider">|</span> Premium Quality Fashion <span class="divider">|</span> Nationwide Delivery</p>
+  </footer>
+
+  <script>
+    // Simple navigation highlighting
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', (e) => {
+        document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+        link.classList.add('active');
+      });
+    });
+    
+    // Cart button functionality
+    document.querySelectorAll('.btn-add').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const productName = this.parentElement.querySelector('h3').textContent;
+        alert(`Added "${productName}" to cart!`);
+      });
+    });
+  </script>
 </body>
 </html>
