@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solo Fashion</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f7f7f7;
+            color: #222;
+        }
+        header {
+            background: #181818;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            letter-spacing: 1px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+        .hero {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .hero h2 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+        .hero p {
+            color: #555;
+            font-size: 1rem;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 22px;
+        }
+        .card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            transition: transform 0.2s ease;
+        }
+        .card:hover {
+            transform: translateY(-4px);
+        }
+        .card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+        }
+        .info {
+            padding: 15px;
+        }
+        .info h3 {
+            margin: 0 0 8px;
+            font-size: 1.2rem;
+        }
+        .info p {
+            margin: 0 0 10px;
+            color: #666;
+        }
+        .price {
+            font-weight: bold;
+            color: #c72a2a;
+            font-size: 1.3rem;
+        }
+        .btn {
+            display: inline-block;
+            margin-top: 12px;
+            background: #111;
+            color: white;
+            padding: 11px 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1rem;
+        }
+        footer {
+            background: #111;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Solo Fashion</h1>
+    </header>
+
+    <div class="container">
+        <div class="hero">
+            <h2>New Collection</h2>
+            <p>Stylish fashion for everyday confidence.</p>
+        </div>
+
+        <div class="grid">
+            <div class="card">
+                <img src="i1779394270889_3545_0_66.jpg" alt="Fashion product 1">
+                <div class="info">
+                    <h3>Classic Tee</h3>
+                    <p>Comfortable everyday wear</p>
+                    <div class="price">$29.99</div>
+                    <button class="btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="i1779394270891_2324_0_37.jpg" alt="Fashion product 2">
+                <div class="info">
+                    <h3>Summer Dress</h3>
+                    <p>Elegant and breathable</p>
+                    <div class="price">$49.99</div>
+                    <button class="btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="i1779394273554_9804_0_0.jpg" alt="Fashion product 3">
+                <div class="info">
+                    <h3>Denim Jacket</h3>
+                    <p>Classic street style</p>
+                    <div class="price">$79.99</div>
+                    <button class="btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="i1779394279636_2868_0_8.jpg" alt="Fashion product 4">
+                <div class="info">
+                    <h3>Casual Shirt</h3>
+                    <p>Soft and modern fit</p>
+                    <div class="price">$34.99</div>
+                    <button class="btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="i1779394279638_8643_0_17.jpg" alt="Fashion product 5">
+                <div class="info">
+                    <h3>Slim Pants</h3>
+                    <p>Trend-focused silhouette</p>
+                    <div class="price">$59.99</div>
+                    <button class="btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="i1779394282942_9305_0_96.jpg" alt="Fashion product 6">
+                <div class="info">
+                    <h3>Cozy Hoodie</h3>
+                    <p>Warm and relaxed</p>
+                    <div class="price">$54.99</div>
+                    <button class="btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="i1779394285234_9841_0_35.jpg" alt="Fashion product 7">
+                <div class="info">
+                    <h3>Polo Shirt</h3>
+                    <p>Smart casual staple</p>
+                    <div class="price">$44.99</div>
+                    <button class="btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="i1779394287015_2579_0_22.jpg" alt="Fashion product 8">
+                <div class="info">
+                    <h3>Tank Top</h3>
+                    <p>Perfect for summer</p>
+                    <div class="price">$19.99</div>
+                    <button class="btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="i1779394287017_8410_0_87.jpg" alt="Fashion product 9">
+                <div class="info">
+                    <h3>Cargo Pants</h3>
+                    <p>Durable and stylish</p>
+                    <div class="price">$64.99</div>
+                    <button class="btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="i1779394289291_3026_0_65.jpg" alt="Fashion product 10">
+                <div class="info">
+                    <h3>V-Neck Shirt</h3>
+                    <p>Clean and versatile</p>
+                    <div class="price">$39.99</div>
+                    <button class="btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="i1779476470318_3864_0_57.jpg" alt="Fashion product 11">
+                <div class="info">
+                    <h3>Bomber Jacket</h3>
+                    <p>Modern edge</p>
+                    <div class="price">$84.99</div>
+                    <button class="btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="i1779476472413_687_0_21.jpg" alt="Fashion product 12">
+                <div class="info">
+                    <h3>Sweatshirt</h3>
+                    <p>Strong everyday comfort</p>
+                    <div class="price">$49.99</div>
+                    <button class="btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="i1779476473597_1602_0_73.jpg" alt="Fashion product 13">
+                <div class="info">
+                    <h3>Long Sleeve</h3>
+                    <p>Easy layering</p>
+                    <div class="price">$34.99</div>
+                    <button class="btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="i1779476473597_6433_0_47.jpg" alt="Fashion product 14">
+                <div class="info">
+                    <h3>Sport Shorts</h3>
+                    <p>Lightweight movement</p>
+                    <div class="price">$29.99</div>
+                    <button class="btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="i1779476474460_5096_0_6.jpg" alt="Fashion product 15">
+                <div class="info">
+                    <h3>Formal Shirt</h3>
+                    <p>Clean and polished</p>
+                    <div class="price">$59.99</div>
+                    <button class="btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="i1779476475356_3098_0_25.jpg" alt="Fashion product 16">
+                <div class="info">
+                    <h3>Linen Shirt</h3>
+                    <p>Fresh and airy</p>
+                    <div class="price">$44.99</div>
+                    <button class="btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="i1779476475651_8263_0_28.jpg" alt="Fashion product 17">
+                <div class="info">
+                    <h3>Oxford Shirt</h3>
+                    <p>Classic luxury feel</p>
+                    <div class="price">$54.99</div>
+                    <button class="btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="i1779476475930_7501_0_34.jpg" alt="Fashion product 18">
+                <div class="info">
+                    <h3>Henley Shirt</h3>
+                    <p>Casual and stylish</p>
+                    <div class="price">$32.99</div>
+                    <button class="btn">Add to Cart</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="i1779476476513_2509_0_4.jpg" alt="Fashion product 19">
+                <div class="info">
+                    <h3>Crew Neck</h3>
+                    <p>Effortless everyday look</p>
+                    <div class="price">$37.99</div>
+                    <button class="btn">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 Solo Fashion</p>
+    </footer>
+</body>
+</html>
